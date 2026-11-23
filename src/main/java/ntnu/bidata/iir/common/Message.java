@@ -5,7 +5,7 @@ import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
 /**
- * One protocol message: a type plus string arguments.
+ * One protocol message: a type plus string arguments. :)
  * Wire format: one line, fields separated by '|', first field is the type name.
  */
 public record Message(MessageType type, List<String> args) {
