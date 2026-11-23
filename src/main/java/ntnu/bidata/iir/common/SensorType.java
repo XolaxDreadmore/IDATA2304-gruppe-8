@@ -60,6 +60,12 @@ public enum SensorType {
     /** Simulation: how much the value drifts back to start per reading. */
     public double pull() { return pull; }
 
+    public double normalMin() {return normalMin;}
+
+    public double normalMax() {return normalMax;}
+
+    public double maxJump() {return maxJump;}
+
     /** if a guest can see this sensor or not */
     public boolean guestVisible() { return guestVisible; }
 
