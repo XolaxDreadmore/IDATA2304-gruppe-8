@@ -27,7 +27,9 @@ final class NodeState {
 
     List<SensorSeries> sensors() {return new ArrayList<>(sensors.values());}
 
-    Map<String, String> ActuatorStates() {return actuatorStates;}
+    Map<String, String> actuatorStates() {
+        return actuatorStates;
+    }
 
     /** @return a description if this reading is an anomaly */
     String applyReading(String sensorId, double value) {
@@ -42,7 +44,7 @@ final class NodeState {
     /** True while any alarm actuator of this node is on */
     boolean alarmActive() {
         return actuatorStates.entrySet().stream().anyMatch(e -> ActuatorType.find(e.getKey())
-                .orElse(null)) == ActuatorType.ALARM && ActuatorType.isActiveState(e.getKey(), e.getValue());
+                .orElse(null) == ActuatorType.ALARM && ActuatorType.isActiveState(e.getKey(), e.getValue()));
     }
 
     boolean hasAnomaly() {return sensors.values().stream().anyMatch(s -> s.anomaly() != null);}
