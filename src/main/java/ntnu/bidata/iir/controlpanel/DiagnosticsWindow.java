@@ -17,7 +17,7 @@ import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 
 
-final class DiagnosticWindow extends JFrame {
+final class DiagnosticsWindow extends JFrame {
     private static final DateTimeFormatter TIME = DateTimeFormatter.ofPattern("HH:mm:ss");
     private static final int MAX_LOG_ROWS = 1000;
     private static final int REFRESH_MS = 5000;
@@ -35,7 +35,7 @@ final class DiagnosticWindow extends JFrame {
     private final Timer refreshTimer;
 
     /** @param requestClients ask for the list of clients and the clients recieves through "addClient" */
-    DiagnosticWindow(String title, Runnable requestClients) {
+    DiagnosticsWindow(String title, Runnable requestClients) {
         super("Diagnostics - " + title);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         setSize(900, 620);
