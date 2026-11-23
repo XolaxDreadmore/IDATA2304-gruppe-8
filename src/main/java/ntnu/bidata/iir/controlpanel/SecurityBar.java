@@ -59,7 +59,7 @@ final class SecurityBar extends JPanel {
         switch (state) {
             case "ARMED" -> show("ARMED - the entrance is watched", BLUE);
             case "ENTRY" -> show("ENTRY DETECTED - enter the code within " + secondsLeft + " s", ORANGE);
-            case "ALARM" -> show("ALARM - Intruder detected! Enter the code to silence the alarm", RED);
+            case "ALARM" -> show("ALARM - Intruder! Enter code to silence", RED);
             default -> show("DISARMED", GREEN);
         }
     }
