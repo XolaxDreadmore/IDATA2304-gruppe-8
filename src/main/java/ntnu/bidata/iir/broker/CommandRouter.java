@@ -49,15 +49,15 @@ final class CommandRouter {
         for (String nodeId : resolveNodes(nodeSelector)) {
             ClientHandler node = registry.node(nodeId);
             if (node == null) {
-                tally.fail(Protocol.EER_NOT_FOUND, "No such note: " + nodeId);
+                tally.fail(Protocol.ERR_NOT_FOUND, "No such note: " + nodeId);
                 continue;
             }
             for (String selector : actuatorSelector.split(Protocol.LIST_SEPARATOR)) {
                 routeToActuators(role, node, selector.strip(), action, tally);
             }
         }
-        if tally.delivered == 0 && tally.errorCode == null {
-            tally.fail(Protocol.EER_NOT_FOUND, "No actuator matches " + nodeSelector + " / " + actuatorSelector);
+        if (tally.delivered == 0 && tally.errorCode == null) {
+            tally.fail(Protocol.ERR_NOT_FOUND, "No actuator matches " + nodeSelector + " / " + actuatorSelector);
         }
         return new Result(tally.delivered, tally.skipped, tally.errorCode, tally.errorText);
     }
@@ -80,7 +80,7 @@ final class CommandRouter {
         } else if (available.contains(selector)) {
             deliver(role, node, selector, action, tally);
         } else {
-            tally.fail(Protocol.EER_NOT_FOUND, "Node " + node.id() + " has no actuator " + selector);
+            tally.fail(Protocol.ERR_NOT_FOUND, "Node " + node.id() + " has no actuator " + selector);
         }
     }
 
