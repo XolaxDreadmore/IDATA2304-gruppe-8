@@ -14,6 +14,7 @@ public final class ControlPanelGuiMain {
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception ignored) { }
+            showLogin();
         });
     }
 

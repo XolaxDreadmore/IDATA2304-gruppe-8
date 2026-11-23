@@ -33,7 +33,7 @@ public record Message(MessageType type, List<String> args) {
         StringJoiner joiner = new StringJoiner(Protocol.SEPARATOR);
         joiner.add(type.name());
         for (String arg : args) {
-            if (arg.contains(Protocol.SEPARATOR) || arg.contains("/n") || arg.contains("/r")) {
+            if (arg.contains(Protocol.SEPARATOR) || arg.contains("\n") || arg.contains("\r")) {
                 throw new ProtocolException("Illegal character in field: " + arg);
             }
             joiner.add(arg);
