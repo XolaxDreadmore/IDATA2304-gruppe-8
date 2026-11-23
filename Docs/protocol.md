@@ -1,4 +1,4 @@
-# SHA Smart Home Protocol (version 1.2 - review as a group)
+# SHA Smart Home Protocol
 
 ## 1. Introduction
 This document describes the SHA protocol, an application-layer protocol on top of TCP that lets
@@ -32,7 +32,7 @@ TCP port **5050** on the broker.
 - Actors: broker, sensor nodes, control panels.
 - The broker is the only server. Sensor nodes and panels are clients that open one TCP
   connection each to the broker; they never talk to each other directly.
-- *Why a broker:* nodes and panels only need the broker's address (minimal configuration), and
+- *Why a broker:* nodes and panels only need the broker's address, and
   there is one place to route messages and check permissions.
 
 ## 6. Flow of information
@@ -93,7 +93,7 @@ Connection-oriented (TCP) and **stateful**: the broker remembers per connection 
 - Error codes: `400` bad request (malformed message, or an action the actuator type does not accept), `401` not logged in or wrong password, `403` forbidden for this role, `404` unknown node or actuator, `409` id already in use / already registered. Actuator ids and selectors may contain `*`.
 
 ## 9. Message format
-Plain text, UTF-8, **one message per line** (`\n`), fields separated by `|`, first field is the message type. Fields must not contain `|`, `\r` or `\n`. *Why:* human readable (easy to debug with netcat), trivial to parse, new types and fields are easy to add.
+Plain text, UTF-8, **one message per line** (`\n`), fields separated by `|`, first field is the message type. Fields must not contain `|`, `\r` or `\n`. *Why:* easily readable and new types and fields are easy to add.
 
 | Message | Sent by -> to | Format |
 |---|---|---|
