@@ -1,6 +1,8 @@
 package ntnu.bidata.iir.common;
 
-/** Constants shared by every node. Keep in sync with protocol.md. */
+/**
+ * Constants shared by every node.
+ */
 public final class Protocol {
     public static final int PORT = 5050;
     public static final String SEPARATOR = "|";
