@@ -1,6 +1,6 @@
 package ntnu.bidata.iir.common;
 
-/** All message types in the protocol. */
+/** All message types in the protocol. See protocol.md for who sends what. */
 public enum MessageType {
     // sensor node -> broker
     REGISTER, // REGISTER|nodeId|sensors|actuators
